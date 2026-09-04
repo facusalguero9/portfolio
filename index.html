@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facundo Salguero — Zoho Developer & AI Integration Specialist</title>
+  <meta name="description" content="Zoho developer and technical consultant specialized in Deluge, Zoho CRM/Flow/Projects automation, and AI integration for Zoho ecosystems.">
+
+  <!-- Open Graph tags: control how this page looks when shared as a link on LinkedIn, Slack, etc. -->
+  <meta property="og:title" content="Facundo Salguero — Zoho Developer & AI Integration Specialist">
+  <meta property="og:description" content="Portfolio & CV, built as a code editor.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231e1e1e%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22%23da7756%22 font-family=%22monospace%22>&gt;_</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ TITLE BAR ============ -->
+  <!-- Mimics a desktop app window: traffic-light dots + window title. Purely decorative. -->
+  <header class="titlebar">
+    <div class="titlebar-dots" aria-hidden="true">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <div class="titlebar-title">facundo-salguero — portfolio.code-workspace</div>
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle file explorer" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="stats-strip" aria-label="Upwork track record">
+    <span class="stat-badge">✓ 100% Job Success</span>
+    <span class="stat-badge">★ Top Rated</span>
+    <span class="stat-badge">$60K+ earned</span>
+    <span class="stat-badge">4,848 hrs logged</span>
+    <span class="stat-badge">11 jobs completed</span>
+  </div>
+
+  <div class="ide-layout">
+
+    <!-- ============ SIDEBAR: FILE EXPLORER ============ -->
+    <nav class="sidebar" id="sidebar" aria-label="File explorer">
+      <div class="sidebar-heading">EXPLORER</div>
+      <div class="tree-root">FACUNDO-SALGUERO</div>
+
+      <ul class="file-tree" role="tablist" aria-orientation="vertical">
+        <li>
+          <button class="file-item active" role="tab" aria-selected="true" data-target="about" data-icon="md" data-label="about.md">
+            <span class="file-icon icon-md">M↓</span> about.md
+          </button>
+        </li>
+        <li>
+          <button class="file-item" role="tab" aria-selected="false" data-target="skills" data-icon="json" data-label="skills.json">
+            <span class="file-icon icon-json">{}</span> skills.json
+          </button>
+        </li>
+        <li>
+          <button class="file-item" role="tab" aria-selected="false" data-target="testimonials" data-icon="md" data-label="testimonials.md">
+            <span class="file-icon icon-md">M↓</span> testimonials.md
+          </button>
+        </li>
+        <li>
+          <button class="file-item" role="tab" aria-selected="false" data-target="education" data-icon="md" data-label="education.md">
+            <span class="file-icon icon-md">M↓</span> education.md
+          </button>
+        </li>
+
+        <li class="folder">
+          <button class="folder-item" data-folder="experience" aria-expanded="true">
+            <span class="chevron">▾</span> <span class="folder-icon">📁</span> experience
+          </button>
+          <ul class="folder-contents" data-folder-contents="experience">
+            <li>
+              <button class="file-item" role="tab" aria-selected="false" data-target="exp-changeorder" data-icon="md" data-label="change-order-automation.md">
+                <span class="file-icon icon-md">M↓</span> change-order-automation.md
+              </button>
+            </li>
+            <li>
+              <button class="file-item" role="tab" aria-selected="false" data-target="exp-docsign" data-icon="md" data-label="document-signature-flow.md">
+                <span class="file-icon icon-md">M↓</span> document-signature-flow.md
+              </button>
+            </li>
+            <li>
+              <button class="file-item" role="tab" aria-selected="false" data-target="exp-dataprep" data-icon="md" data-label="retail-dataprep-pipeline.md">
+                <span class="file-icon icon-md">M↓</span> retail-dataprep-pipeline.md
+              </button>
+            </li>
+            <li>
+              <button class="file-item" role="tab" aria-selected="false" data-target="exp-pdffax" data-icon="md" data-label="pdf-fax-generation.md">
+                <span class="file-icon icon-md">M↓</span> pdf-fax-generation.md
+              </button>
+            </li>
+            <li>
+              <button class="file-item" role="tab" aria-selected="false" data-target="exp-sap" data-icon="md" data-label="sap-integration-debug.md">
+                <span class="file-icon icon-md">M↓</span> sap-integration-debug.md
+              </button>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <button class="file-item" role="tab" aria-selected="false" data-target="learning" data-icon="txt" data-label="currently-learning.txt">
+            <span class="file-icon icon-txt">≡</span> currently-learning.txt
+          </button>
+        </li>
+        <li>
+          <button class="file-item" role="tab" aria-selected="false" data-target="contact" data-icon="txt" data-label="contact.txt">
+            <span class="file-icon icon-txt">≡</span> contact.txt
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-heading sidebar-heading-secondary">SOURCE CONTROL</div>
+      <ul class="links-list">
+        <li><a href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">↗ Upwork profile</a></li>
+        <li><a href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">↗ LinkedIn profile</a></li>
+        <li><a href="mailto:ff.aq199@gmail.com">↗ ff.aq199@gmail.com</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============ MAIN: TABS + EDITOR ============ -->
+    <div class="editor-area">
+
+      <!-- Open-file tabs, mirror what's in the sidebar. Click = same as sidebar click. -->
+      <div class="tabbar" id="tabbar" role="tablist" aria-label="Open files">
+        <button class="tab active" data-target="about">
+          <span class="file-icon icon-md">M↓</span> about.md <span class="tab-close">×</span>
+        </button>
+      </div>
+
+      <main class="editor-scroll" id="editor-scroll">
+
+        <!-- ---------- about.md ---------- -->
+        <section class="pane active" id="pane-about" data-gutter-lines="40">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Facundo Salguero</p>
+            <p class="md-h2"><span class="md-mark">##</span> Zoho Developer &amp; AI Integration Specialist</p>
+            <p class="md-plain">Based in Argentina · Working with clients worldwide via Upwork</p>
+
+            <p class="md-blank"></p>
+            <p class="md-comment">&lt;!-- Summary --&gt;</p>
+            <p class="md-plain">Certified Zoho Developer – Associate with hands-on experience across Zoho Partner
+            companies. I design and build automations inside the Zoho ecosystem — CRM, Creator, Flow, Projects,
+            Desk, Books, WorkDrive — mostly written in <span class="md-code">Deluge</span>. I work as a technical
+            consultant across several client organizations at once, each with a different architecture, which means
+            I spend a lot of time reading unfamiliar systems fast and shipping fixes that don't break what's
+            already running. I also have front-end knowledge (HTML, CSS, JavaScript).</p>
+
+            <p class="md-plain">I'm currently expanding beyond Zoho: applying AI/LLM tooling to Zoho workflows
+            (document generation, data cleanup, smarter automations), and building general software skills — this
+            site is itself part of that, built and deployed with Claude as a learning project.</p>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> How I work</p>
+            <ul class="md-list">
+              <li>Validate with small test cases and diagnostic calls before scaling to production data</li>
+              <li>Read the client's existing setup carefully before changing anything — most of my work is inside
+                systems other people already depend on</li>
+              <li>Document the "why," not just the "what," since automations tend to outlive the person who explains
+                them</li>
+            </ul>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Open to</p>
+            <ul class="md-list">
+              <li>Zoho CRM / Flow / Projects / Books / WorkDrive automation and integration work</li>
+              <li>Third-party API integrations connected to Zoho (ERPs, e-sign, document generation, messaging)</li>
+              <li>AI-assisted workflows built on top of Zoho</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ---------- skills.json ---------- -->
+        <section class="pane" id="pane-skills">
+          <div class="code-block code-json">
+<pre><span class="j-brace">{</span>
+  <span class="j-key">"platform"</span><span class="j-punc">:</span> <span class="j-key">"Zoho"</span><span class="j-punc">,</span>
+  <span class="j-key">"core_language"</span><span class="j-punc">:</span> <span class="j-str">"Deluge"</span><span class="j-punc">,</span>
+  <span class="j-key">"products"</span><span class="j-punc">:</span> <span class="j-brack">[</span>
+    <span class="j-str">"Zoho CRM"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Flow"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Projects"</span><span class="j-punc">,</span>
+    <span class="j-str">"Zoho Books"</span><span class="j-punc">,</span> <span class="j-str">"Zoho WorkDrive"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Writer"</span><span class="j-punc">,</span>
+    <span class="j-str">"Zoho Sign"</span><span class="j-punc">,</span> <span class="j-str">"Zoho DataPrep"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Analytics"</span><span class="j-punc">,</span>
+    <span class="j-str">"Zoho Creator"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Desk"</span><span class="j-punc">,</span> <span class="j-str">"Zoho Recruit"</span>
+  <span class="j-brack">]</span><span class="j-punc">,</span>
+  <span class="j-key">"crm_technical"</span><span class="j-punc">:</span> <span class="j-brack">[</span>
+    <span class="j-str">"COQL queries (invokeurl)"</span><span class="j-punc">,</span> <span class="j-str">"Approval Processes"</span><span class="j-punc">,</span>
+    <span class="j-str">"Client Scripts / ZDK"</span><span class="j-punc">,</span> <span class="j-str">"v3 REST API"</span><span class="j-punc">,</span> <span class="j-str">"Blueprint & Workflow Rules"</span>
+  <span class="j-brack">]</span><span class="j-punc">,</span>
+  <span class="j-key">"integrations"</span><span class="j-punc">:</span> <span class="j-brack">[</span>
+    <span class="j-str">"SAP Business One (On-Prem Agent)"</span><span class="j-punc">,</span> <span class="j-str">"DocRaptor (PDF generation)"</span><span class="j-punc">,</span>
+    <span class="j-str">"FAXAGE"</span><span class="j-punc">,</span> <span class="j-str">"WhatsApp via Zoho SalesIQ/Desk webhooks"</span><span class="j-punc">,</span>
+    <span class="j-str">"REST APIs, webhooks, OAuth"</span>
+  <span class="j-brack">]</span><span class="j-punc">,</span>
+  <span class="j-key">"ai_and_learning"</span><span class="j-punc">:</span> <span class="j-brack">[</span>
+    <span class="j-str">"zoho.ai translation pipelines"</span><span class="j-punc">,</span>
+    <span class="j-str">"applying LLMs to Zoho workflow automation"</span><span class="j-punc">,</span>
+    <span class="j-str">"general web development (HTML/CSS/JS, Git)"</span>
+  <span class="j-brack">]</span><span class="j-punc">,</span>
+  <span class="j-key">"languages"</span><span class="j-punc">:</span> <span class="j-brack">[</span><span class="j-str">"Spanish (native)"</span><span class="j-punc">,</span> <span class="j-str">"English (conversational)"</span><span class="j-brack">]</span><span class="j-punc">,</span>
+  <span class="j-key">"general"</span><span class="j-punc">:</span> <span class="j-brack">[</span>
+    <span class="j-str">"HTML5"</span><span class="j-punc">,</span> <span class="j-str">"CSS3 / Flexbox"</span><span class="j-punc">,</span> <span class="j-str">"JavaScript"</span><span class="j-punc">,</span>
+    <span class="j-str">"SQL"</span><span class="j-punc">,</span> <span class="j-str">"Java"</span><span class="j-punc">,</span> <span class="j-str">"C#"</span><span class="j-punc">,</span> <span class="j-str">"Firebase"</span>
+  <span class="j-brack">]</span>
+<span class="j-brace">}</span></pre>
+          </div>
+        </section>
+
+        <!-- ---------- testimonials.md ---------- -->
+        <section class="pane" id="pane-testimonials">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Testimonials</p>
+            <p class="md-plain">Verified feedback from clients, via Upwork.</p>
+            <p class="md-blank"></p>
+
+            <blockquote class="md-quote">
+              "I hired Facundo to develop Zoho applications and setup Zoho CRM automations. He's a great developer
+              and very responsible. Highly recommended!"
+            </blockquote>
+            <p class="md-tag">— Ariel C., Business Manager · Zoho Developer, Jul 2023</p>
+
+            <p class="md-blank"></p>
+            <blockquote class="md-quote">
+              "Facundo is a talented professional. He was critical in our systems implementation and we look
+              forward to working with him again soon on future projects."
+            </blockquote>
+            <p class="md-tag">— Steven C., CEO at WNY Exteriors · Developer &amp; CRM Admin, Jul 2023</p>
+
+            <p class="md-blank"></p>
+            <blockquote class="md-quote">
+              "Facundo is a driven and dedicated individual that will go to great lengths to implement a solution
+              they may never have worked on before. They do a great job..."
+            </blockquote>
+            <p class="md-tag">— Joshua, Zoho One Expert engagement (5.0★, 1,815 hrs)</p>
+          </div>
+        </section>
+
+        <!-- ---------- education.md ---------- -->
+        <section class="pane" id="pane-education">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Education &amp; Certifications</p>
+
+            <p class="md-h2"><span class="md-mark">##</span> Certifications</p>
+            <ul class="md-list">
+              <li>Zoho Creator Developer – Associate — Zoho, issued June 2025 (ID: ZCCA2612)</li>
+            </ul>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Education</p>
+            <ul class="md-list">
+              <li>Systems Analyst — Instituto Superior Santo Domingo, Córdoba, Argentina (2018–2023)</li>
+              <li>FullStack Web Developer — Escuela DevRock (2021–2022)</li>
+              <li>SummerHack Bootcamp — DevRock School: 4-month intensive on HTML, CSS, JavaScript, React and
+                Firebase</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ---------- experience/change-order-automation.md ---------- -->
+        <section class="pane" id="pane-exp-changeorder">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Change Order Approval → Project Automation</p>
+            <p class="md-tag">client: technology consulting firm (TechnoMap)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Built a system that chains Zoho CRM's native Approval Process to automatic Zoho
+            Projects creation: once a change order is approved in CRM, the workflow creates the corresponding
+            Phase, Tasklist and Task structure in Projects via the v3 API — no manual re-entry.</p>
+            <p class="md-plain">Also built and debugged a companion automation handling invoice subform
+            manipulation and keeping status fields in sync across CRM, Projects and Books.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain"><span class="md-code">Deluge</span> · Zoho CRM Approval Process · Zoho Projects v3 API · Zoho Books custom fields</p>
+          </div>
+        </section>
+
+        <!-- ---------- experience/document-signature-flow.md ---------- -->
+        <section class="pane" id="pane-exp-docsign">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Document Generation &amp; E-Signature Automation</p>
+            <p class="md-tag">client: financial advisory firm (Newpoint Advisors)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Integrated Zoho Writer's merge/sign API with Zoho Sign to auto-generate client
+            documents and route them for signature directly from CRM records, including ownership-transfer logic
+            and custom email templates via merge tags.</p>
+            <p class="md-plain">Paired it with a WorkDrive folder-automation system tied to CRM Accounts and
+            Client Projects — folders are created, linked, and embedded back into CRM layouts via iframe widgets,
+            so the whole document lifecycle stays inside one screen for the client-facing team.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain"><span class="md-code">Deluge</span> · Zoho Writer API · Zoho Sign API · WorkDrive API · CRM iframe widgets</p>
+          </div>
+        </section>
+
+        <!-- ---------- experience/retail-dataprep-pipeline.md ---------- -->
+        <section class="pane" id="pane-exp-dataprep">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Retail Data Pipeline: Files → CRM Records</p>
+            <p class="md-tag">client: multi-brand facilities services provider (Gaucher Associates Inc.)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Built Zoho DataPrep pipelines that ingest weekly location and calendar files from
+            major retail brands and automatically create or update Client Project records in CRM — turning a
+            manual, brand-by-brand data-entry process into a scheduled pipeline.</p>
+            <p class="md-plain">The real difficulty was the data, not the platform: every brand exports in a
+            slightly different shape, with inconsistent address formats and column layouts that needed
+            brand-specific handling before the data could land in a single, consistent CRM schema.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho DataPrep · Zoho CRM bulk operations · Zoho Flow</p>
+          </div>
+        </section>
+
+        <!-- ---------- experience/pdf-fax-generation.md ---------- -->
+        <section class="pane" id="pane-exp-pdffax">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Positioned PDF Fax Generation</p>
+            <p class="md-tag">client: healthcare DME provider (DiabetesDME)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Built DocRaptor-based PDF generation flows in Zoho Flow that produce fax-ready
+            documents by absolute-positioning HTML content over background images — matching the exact layout of
+            existing paper forms so the automated version is indistinguishable from a manually filled one.</p>
+            <p class="md-plain">Later extended the same flow to support a new two-page addendum document by
+            reusing the existing infrastructure through a single <span class="md-code">docType</span> branch
+            parameter, instead of duplicating the pipeline.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho Flow · DocRaptor API · HTML/CSS document templating</p>
+          </div>
+        </section>
+
+        <!-- ---------- experience/sap-integration-debug.md ---------- -->
+        <section class="pane" id="pane-exp-sap">
+          <div class="code-block">
+            <p class="md-h1"><span class="md-mark">#</span> Zoho Flow ↔ SAP Business One Debugging</p>
+            <p class="md-tag">client: manufacturing/distribution company running SAP B1</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Diagnosed a failing Zoho Flow ↔ SAP Business One connector integration running
+            through an On-Prem Agent. Traced the failure to a platform-level serialization bug: Deluge
+            <span class="md-code">null</span> values were being sent to SAP as the literal string
+            <span class="md-code">"null"</span> instead of an empty value, silently corrupting records.</p>
+            <p class="md-plain">Filed a bug report with Zoho and shipped a conditional-branching workaround so
+            the client's integration kept running while the platform fix was pending.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho Flow · SAP Business One · On-Prem Agent · Deluge</p>
+          </div>
+        </section>
+
+        <!-- ---------- currently-learning.txt ---------- -->
+        <section class="pane" id="pane-learning">
+          <div class="code-block code-plain">
+            <p class="md-comment"># updated 2026</p>
+            <p class="md-plain">→ Applying AI/LLMs to Zoho automation — document understanding, smarter data
+            cleanup, natural-language triggers on top of existing Deluge workflows.</p>
+            <p class="md-plain">→ General software development outside the Zoho ecosystem: this site is a live
+            example — plain HTML/CSS/JS first, built and deployed with Claude, with a React version planned as
+            the next step.</p>
+            <p class="md-plain">→ Git &amp; GitHub — version control, deployment workflows, working the way most
+            dev teams do outside Zoho.</p>
+          </div>
+        </section>
+
+        <!-- ---------- contact.txt ---------- -->
+        <section class="pane" id="pane-contact">
+          <div class="code-block code-plain">
+            <p class="md-plain">name:    Facundo Salguero</p>
+            <p class="md-plain">role:    Zoho Developer &amp; AI Integration Specialist</p>
+            <p class="md-plain">based:   Argentina</p>
+            <p class="md-plain">email:   <a href="mailto:ff.aq199@gmail.com">ff.aq199@gmail.com</a></p>
+            <p class="md-plain">upwork:  <a href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">upwork.com/freelancers/~015ced49c9d0174e87</a></p>
+            <p class="md-plain">linkedin: <a href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">linkedin.com/in/facundo-salguero-861a51214</a></p>
+            <p class="md-blank"></p>
+            <a class="cta-button" href="mailto:ff.aq199@gmail.com">→ Send an email</a>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ============ TERMINAL PANEL ============ -->
+      <div class="terminal-panel" id="terminal-panel">
+        <div class="terminal-header">
+          <span>TERMINAL</span>
+          <button id="terminal-toggle" aria-label="Toggle terminal" aria-expanded="true">▾</button>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <p><span class="prompt">facu@portfolio</span>:<span class="path">~</span>$ <span id="terminal-line"></span><span class="cursor">▌</span></p>
+        </div>
+      </div>
+
+      <!-- ============ STATUS BAR ============ -->
+      <footer class="statusbar">
+        <span>⎇ main</span>
+        <span id="status-file">about.md</span>
+        <span class="statusbar-spacer"></span>
+        <span>UTF-8</span>
+        <span>Built with Claude</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
