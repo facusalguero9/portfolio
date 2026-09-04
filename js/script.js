@@ -249,6 +249,37 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTheme(initialTheme());
 
   /* ---------------------------------------------------------------
+     Skin toggle (classic terminal look / modern rounded look)
+     Same pattern as the theme toggle: one attribute on <html>, and
+     style.css's html[data-skin="modern"] rules do the rest.
+     --------------------------------------------------------------- */
+  const skinToggle = document.getElementById('skin-toggle');
+
+  function applySkin(skin) {
+    root.dataset.skin = skin;
+    skinToggle.textContent = skin === 'modern' ? '🖥 Classic' : '✨ Modern';
+    skinToggle.setAttribute(
+      'aria-label',
+      skin === 'modern' ? 'Switch to classic IDE style' : 'Switch to modern style'
+    );
+    try { localStorage.setItem('skin', skin); } catch (e) { /* ignore */ }
+  }
+
+  function initialSkin() {
+    try {
+      const saved = localStorage.getItem('skin');
+      if (saved === 'classic' || saved === 'modern') return saved;
+    } catch (e) { /* ignore */ }
+    return 'classic';
+  }
+
+  skinToggle.addEventListener('click', () => {
+    applySkin(root.dataset.skin === 'modern' ? 'classic' : 'modern');
+  });
+
+  applySkin(initialSkin());
+
+  /* ---------------------------------------------------------------
      Language toggle (English / Español)
      --------------------------------------------------------------- */
   const langButtons = document.querySelectorAll('.lang-btn');
