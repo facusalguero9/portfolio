@@ -34,8 +34,8 @@ const I18N = {
     badgeSuccess: '✓ 100% Job Success',
     badgeTopRated: '★ Top Rated',
     badgeEarned: '$60K+ earned',
-    badgeHours: '4,848 hrs logged',
-    badgeJobs: '11 jobs completed',
+    badgeHours: '4,848+ hrs logged',
+    badgeJobs: '11+ jobs completed',
     termCmds: [
       { cmd: 'whoami', out: 'Facundo Salguero — Zoho Developer & AI Integration Specialist' },
       { cmd: 'cat skills.json | grep core', out: '"core_language": "Deluge"' },
@@ -58,8 +58,8 @@ const I18N = {
     badgeSuccess: '✓ 100% de éxito',
     badgeTopRated: '★ Mejor calificado',
     badgeEarned: '$60K+ ganados',
-    badgeHours: '4.848 hs registradas',
-    badgeJobs: '11 trabajos completados',
+    badgeHours: '4.848+ hs registradas',
+    badgeJobs: '11+ trabajos completados',
     termCmds: [
       { cmd: 'whoami', out: 'Facundo Salguero — Desarrollador Zoho y Especialista en IA' },
       { cmd: 'cat skills.json | grep core', out: '"core_language": "Deluge"' },
