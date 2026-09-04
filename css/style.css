@@ -36,6 +36,51 @@
 
   --titlebar-h: 38px;
   --stats-h: 34px;
+
+  /* Text color for the selected item in the sidebar. Kept as its own
+     token (not just var(--accent)) because it needs a light tint on the
+     dark theme's dark-orange highlight, but a dark tint on the light
+     theme's pale-orange highlight — opposite directions. */
+  --file-active-text: #f0dcd2;
+
+  /* The terminal panel deliberately stays dark in both themes (like most
+     real editors' integrated terminal) — so its text colors are fixed
+     here, not part of the --text / --text-dim pair that flips with
+     [data-theme="light"] below. */
+  --term-text: #d4d4d4;
+  --term-text-dim: #9a9a9a;
+}
+
+/* Light theme — same structure, swapped tokens. Activated by JS setting
+   data-theme="light" on <html> (see js/script.js). Because every color in
+   this file is a var(--...), the light theme needs no other CSS changes:
+   this is the whole point of using custom properties for a design like
+   this one. */
+html[data-theme="light"] {
+  --bg-app: #ffffff;
+  --bg-sidebar: #f4f4f4;
+  --bg-titlebar: #eaeaea;
+  --bg-tab: #ececec;
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --border: #d8d8d8;
+  --text: #1e1e1e;
+  --text-dim: #4b4b4b;
+  --text-muted: #767676;
+
+  /* Darker terracotta than the dark theme's --accent: on a white background
+     the original #da7756 falls just under WCAG AA contrast for normal-size
+     text (~3.1:1). This shade clears 4.5:1 while staying the same hue. */
+  --accent: #b3552f;
+  --accent-soft: rgba(179, 85, 47, 0.12);
+  --accent-contrast: #ffffff;
+
+  --syn-comment: #2e7d32;
+  --syn-string: #a04a2f;
+  --syn-key: #0451a5;
+  --syn-punc: #3a3a3a;
+  --link: #0b63d6;
+
+  --file-active-text: #5c2c17;
 }
 
 * { box-sizing: border-box; }
@@ -86,6 +131,46 @@ ul { list-style: none; margin: 0; padding: 0; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.titlebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lang-switch {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+.lang-btn + .lang-btn { border-left: 1px solid var(--border); }
+.lang-btn.active { background: var(--accent-soft); color: var(--accent); }
+.lang-btn:hover:not(.active) { color: var(--text); }
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 .sidebar-toggle {
   display: none; /* shown on small screens, see media query */
@@ -213,7 +298,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .file-item.active {
   background: var(--accent-soft);
   border-left-color: var(--accent);
-  color: #f0dcd2;
+  color: var(--file-active-text);
 }
 
 .file-icon {
@@ -461,7 +546,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .terminal-body {
   padding: 10px 14px;
   font-size: 13px;
-  color: var(--text);
+  color: var(--term-text);
   min-height: 40px;
 }
 .terminal-body .prompt { color: var(--syn-comment); }
@@ -517,4 +602,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   }
   .hero-photo { width: 96px; height: 96px; }
   .hero-name { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  /* Not enough room for the window title once both toggles are present —
+     the toggles matter more than decorative chrome text. */
+  .titlebar-title { display: none; }
+  .lang-btn { padding: 4px 7px; }
 }

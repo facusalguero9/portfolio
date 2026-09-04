@@ -10,6 +10,64 @@
  * That's ~80% of front-end JavaScript in practice.
  */
 
+// ---------------------------------------------------------------------
+// i18n dictionary: every short UI string the "Switch language" button
+// needs to swap, in one place. Long prose (the actual case studies etc.)
+// lives twice in index.html instead — see the ".i18n-block" elements —
+// because duplicating real HTML (with links, bold text, lists) in a JS
+// string would be harder to read and edit than just writing it twice.
+// ---------------------------------------------------------------------
+const I18N = {
+  en: {
+    explorer: 'EXPLORER',
+    sourceControl: 'SOURCE CONTROL',
+    terminal: 'TERMINAL',
+    builtWith: 'Built with Claude',
+    profileRole: 'Zoho Developer · AI Specialist',
+    linkUpwork: 'Upwork profile',
+    linkLinkedin: 'LinkedIn profile',
+    heroRole: 'Zoho Developer & AI Integration Specialist',
+    heroLocation: '📍 Argentina · Working with clients worldwide via Upwork',
+    ctaContact: '✉ Contact me',
+    ctaUpwork: '↗ Upwork',
+    ctaLinkedin: '↗ LinkedIn',
+    badgeSuccess: '✓ 100% Job Success',
+    badgeTopRated: '★ Top Rated',
+    badgeEarned: '$60K+ earned',
+    badgeHours: '4,848 hrs logged',
+    badgeJobs: '11 jobs completed',
+    termCmds: [
+      { cmd: 'whoami', out: 'Facundo Salguero — Zoho Developer & AI Integration Specialist' },
+      { cmd: 'cat skills.json | grep core', out: '"core_language": "Deluge"' },
+      { cmd: 'open contact.txt', out: 'ff.aq199@gmail.com' },
+    ],
+  },
+  es: {
+    explorer: 'EXPLORADOR',
+    sourceControl: 'CONTROL DE VERSIONES',
+    terminal: 'TERMINAL',
+    builtWith: 'Hecho con Claude',
+    profileRole: 'Dev Zoho · Especialista en IA',
+    linkUpwork: 'Perfil de Upwork',
+    linkLinkedin: 'Perfil de LinkedIn',
+    heroRole: 'Desarrollador Zoho y Especialista en Integración de IA',
+    heroLocation: '📍 Argentina · Trabajo con clientes de todo el mundo vía Upwork',
+    ctaContact: '✉ Contactarme',
+    ctaUpwork: '↗ Upwork',
+    ctaLinkedin: '↗ LinkedIn',
+    badgeSuccess: '✓ 100% de éxito',
+    badgeTopRated: '★ Mejor calificado',
+    badgeEarned: '$60K+ ganados',
+    badgeHours: '4.848 hs registradas',
+    badgeJobs: '11 trabajos completados',
+    termCmds: [
+      { cmd: 'whoami', out: 'Facundo Salguero — Desarrollador Zoho y Especialista en IA' },
+      { cmd: 'cat skills.json | grep core', out: '"core_language": "Deluge"' },
+      { cmd: 'open contact.txt', out: 'ff.aq199@gmail.com' },
+    ],
+  },
+};
+
 // Wrap everything in a listener for DOMContentLoaded so we don't try to
 // grab elements before the browser has finished building the page.
 document.addEventListener('DOMContentLoaded', () => {
@@ -156,7 +214,89 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------------------------------------------------------------
-     Terminal panel: collapse toggle + a small typewriter effect
+     Theme toggle (dark / light)
+     Every color in style.css is a CSS custom property (var(--...)), so
+     switching themes is just flipping one attribute on <html> — the
+     stylesheet's [data-theme="light"] block does the rest.
+     --------------------------------------------------------------- */
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.setAttribute(
+      'aria-label',
+      theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+    );
+    try { localStorage.setItem('theme', theme); } catch (e) { /* private browsing, etc. — fine to skip */ }
+  }
+
+  function initialTheme() {
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (e) { /* ignore */ }
+    // No stored preference yet: default to dark (the site's primary look)
+    // regardless of OS setting — the toggle makes light mode one click away.
+    return 'dark';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+  });
+
+  applyTheme(initialTheme());
+
+  /* ---------------------------------------------------------------
+     Language toggle (English / Español)
+     --------------------------------------------------------------- */
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const i18nElements = document.querySelectorAll('[data-i18n]');
+  const i18nBlocks   = document.querySelectorAll('.i18n-block');
+
+  function setLanguage(lang) {
+    root.lang = lang;
+
+    // Short UI strings, swapped from the I18N dictionary above.
+    i18nElements.forEach((el) => {
+      const value = I18N[lang][el.dataset.i18n];
+      if (value !== undefined) el.textContent = value;
+    });
+
+    // Long prose blocks: each pane has one English and one Spanish
+    // .i18n-block — show the one matching the active language.
+    i18nBlocks.forEach((block) => {
+      block.hidden = block.dataset.lang !== lang;
+    });
+
+    // Highlight the active language button.
+    langButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.langBtn === lang);
+    });
+
+    try { localStorage.setItem('lang', lang); } catch (e) { /* ignore */ }
+
+    restartTerminal(lang);
+  }
+
+  function initialLanguage() {
+    try {
+      const saved = localStorage.getItem('lang');
+      if (saved === 'en' || saved === 'es') return saved;
+    } catch (e) { /* ignore */ }
+    // No stored preference: guess from the browser's language setting.
+    return navigator.language && navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
+  }
+
+  langButtons.forEach((btn) => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.langBtn));
+  });
+
+  /* ---------------------------------------------------------------
+     Terminal panel: collapse toggle + a small typewriter effect.
+     Commands come from I18N[lang].termCmds, so switching language
+     mid-animation restarts cleanly in the new language.
      --------------------------------------------------------------- */
   const terminalPanel  = document.getElementById('terminal-panel');
   const terminalToggle = document.getElementById('terminal-toggle');
@@ -168,48 +308,54 @@ document.addEventListener('DOMContentLoaded', () => {
     terminalToggle.setAttribute('aria-expanded', String(!collapsed));
   });
 
-  const commands = [
-    { cmd: 'whoami', out: 'Facundo Salguero — Zoho Developer & AI Integration Specialist' },
-    { cmd: 'cat skills.json | grep core', out: '"core_language": "Deluge"' },
-    { cmd: 'open contact.txt', out: 'ff.aq199@gmail.com' },
-  ];
-
   let cmdIndex = 0;
+  let typeIntervalId = null;
+  let outputTimeoutId = null;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function typeLoop() {
-    const { cmd, out } = commands[cmdIndex];
+  function typeLoop(lang) {
+    const commands = I18N[lang].termCmds;
+    const { cmd, out } = commands[cmdIndex % commands.length];
     let i = 0;
     terminalLine.textContent = '';
 
-    const typeInterval = setInterval(() => {
+    typeIntervalId = setInterval(() => {
       terminalLine.textContent = cmd.slice(0, i + 1);
       i++;
       if (i === cmd.length) {
-        clearInterval(typeInterval);
-        setTimeout(() => showOutput(out), 400);
+        clearInterval(typeIntervalId);
+        outputTimeoutId = setTimeout(() => showOutput(out, lang), 400);
       }
     }, 55);
   }
 
-  function showOutput(out) {
+  function showOutput(out, lang) {
     const outputLine = document.createElement('p');
     outputLine.className = 'terminal-output-line';
-    outputLine.style.color = 'var(--text-dim)';
+    outputLine.style.color = 'var(--term-text-dim)';
     outputLine.textContent = out;
     terminalLine.parentElement.insertBefore(outputLine, terminalLine.parentElement.lastElementChild.nextSibling);
 
-    setTimeout(() => {
+    outputTimeoutId = setTimeout(() => {
       outputLine.remove();
-      cmdIndex = (cmdIndex + 1) % commands.length;
-      typeLoop();
+      cmdIndex = (cmdIndex + 1) % I18N[lang].termCmds.length;
+      typeLoop(lang);
     }, 2600);
   }
 
-  // Respect users who've asked their OS for reduced motion.
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) {
-    typeLoop();
-  } else {
-    terminalLine.textContent = 'whoami';
+  function restartTerminal(lang) {
+    clearInterval(typeIntervalId);
+    clearTimeout(outputTimeoutId);
+    terminalLine.parentElement.querySelectorAll('.terminal-output-line').forEach((n) => n.remove());
+
+    if (prefersReducedMotion) {
+      terminalLine.textContent = I18N[lang].termCmds[0].cmd;
+    } else {
+      typeLoop(lang);
+    }
   }
+
+  // Apply the detected/stored language once on load (also starts the
+  // terminal for the first time).
+  setLanguage(initialLanguage());
 });

@@ -30,17 +30,26 @@
       <span class="dot dot-green"></span>
     </div>
     <div class="titlebar-title">facundo-salguero — portfolio.code-workspace</div>
+
+    <div class="titlebar-actions">
+      <div class="lang-switch" role="group" aria-label="Language / Idioma">
+        <button class="lang-btn" data-lang-btn="es">ES</button>
+        <button class="lang-btn" data-lang-btn="en">EN</button>
+      </div>
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
+    </div>
+
     <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle file explorer" aria-expanded="true">
       <span></span><span></span><span></span>
     </button>
   </header>
 
   <div class="stats-strip" aria-label="Upwork track record">
-    <span class="stat-badge">✓ 100% Job Success</span>
-    <span class="stat-badge">★ Top Rated</span>
-    <span class="stat-badge">$60K+ earned</span>
-    <span class="stat-badge">4,848 hrs logged</span>
-    <span class="stat-badge">11 jobs completed</span>
+    <span class="stat-badge" data-i18n="badgeSuccess">✓ 100% Job Success</span>
+    <span class="stat-badge" data-i18n="badgeTopRated">★ Top Rated</span>
+    <span class="stat-badge" data-i18n="badgeEarned">$60K+ earned</span>
+    <span class="stat-badge" data-i18n="badgeHours">4,848 hrs logged</span>
+    <span class="stat-badge" data-i18n="badgeJobs">11 jobs completed</span>
   </div>
 
   <div class="ide-layout">
@@ -51,11 +60,11 @@
         <img src="assets/profile.jpg" alt="Facundo Salguero" class="profile-avatar" width="44" height="44">
         <div class="profile-card-text">
           <div class="profile-name">Facundo Salguero</div>
-          <div class="profile-role">Zoho Developer · AI Specialist</div>
+          <div class="profile-role" data-i18n="profileRole">Zoho Developer · AI Specialist</div>
         </div>
       </div>
 
-      <div class="sidebar-heading">EXPLORER</div>
+      <div class="sidebar-heading" data-i18n="explorer">EXPLORER</div>
       <div class="tree-root">FACUNDO-SALGUERO</div>
 
       <ul class="file-tree" role="tablist" aria-orientation="vertical">
@@ -125,10 +134,10 @@
         </li>
       </ul>
 
-      <div class="sidebar-heading sidebar-heading-secondary">SOURCE CONTROL</div>
+      <div class="sidebar-heading sidebar-heading-secondary" data-i18n="sourceControl">SOURCE CONTROL</div>
       <ul class="links-list">
-        <li><a href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">↗ Upwork profile</a></li>
-        <li><a href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">↗ LinkedIn profile</a></li>
+        <li><a href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">↗ <span data-i18n="linkUpwork">Upwork profile</span></a></li>
+        <li><a href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">↗ <span data-i18n="linkLinkedin">LinkedIn profile</span></a></li>
         <li><a href="mailto:ff.aq199@gmail.com">↗ ff.aq199@gmail.com</a></li>
       </ul>
     </nav>
@@ -152,17 +161,17 @@
             <img src="assets/profile.jpg" alt="Facundo Salguero" class="hero-photo" width="132" height="132">
             <div class="hero-text">
               <p class="hero-name">Facundo Salguero</p>
-              <p class="hero-role">Zoho Developer &amp; AI Integration Specialist</p>
-              <p class="hero-location">📍 Argentina · Working with clients worldwide via Upwork</p>
+              <p class="hero-role" data-i18n="heroRole">Zoho Developer &amp; AI Integration Specialist</p>
+              <p class="hero-location" data-i18n="heroLocation">📍 Argentina · Working with clients worldwide via Upwork</p>
               <div class="hero-cta">
-                <a class="cta-button" href="mailto:ff.aq199@gmail.com">✉ Contact me</a>
-                <a class="cta-button cta-secondary" href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">↗ Upwork</a>
-                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
+                <a class="cta-button" data-i18n="ctaContact" href="mailto:ff.aq199@gmail.com">✉ Contact me</a>
+                <a class="cta-button cta-secondary" data-i18n="ctaUpwork" href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">↗ Upwork</a>
+                <a class="cta-button cta-secondary" data-i18n="ctaLinkedin" href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
               </div>
             </div>
           </div>
 
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-comment">&lt;!-- Summary --&gt;</p>
             <p class="md-plain">Certified Zoho Developer – Associate with hands-on experience across Zoho Partner
             companies. I design and build automations inside the Zoho ecosystem — CRM, Creator, Flow, Projects,
@@ -191,6 +200,42 @@
               <li>Zoho CRM / Flow / Projects / Books / WorkDrive automation and integration work</li>
               <li>Third-party API integrations connected to Zoho (ERPs, e-sign, document generation, messaging)</li>
               <li>AI-assisted workflows built on top of Zoho</li>
+            </ul>
+          </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-comment">&lt;!-- Resumen --&gt;</p>
+            <p class="md-plain">Desarrollador Zoho certificado (Associate), con experiencia práctica en empresas
+            partner de Zoho. Diseño y construyo automatizaciones dentro del ecosistema Zoho — CRM, Creator, Flow,
+            Projects, Desk, Books, WorkDrive — mayormente en <span class="md-code">Deluge</span>. Trabajo como
+            consultor técnico para varias organizaciones cliente a la vez, cada una con una arquitectura distinta,
+            lo que significa que paso mucho tiempo entendiendo sistemas desconocidos rápido y entregando soluciones
+            que no rompen lo que ya está funcionando. También tengo conocimientos de front-end (HTML, CSS,
+            JavaScript).</p>
+
+            <p class="md-plain">Actualmente estoy ampliando mi perfil más allá de Zoho: aplicando herramientas de
+            IA/LLM a flujos de trabajo de Zoho (generación de documentos, limpieza de datos, automatizaciones más
+            inteligentes), y desarrollando habilidades generales de programación — este mismo sitio es parte de
+            eso, construido y publicado con Claude como proyecto de aprendizaje.</p>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Cómo trabajo</p>
+            <ul class="md-list">
+              <li>Valido con casos de prueba chicos y llamadas de diagnóstico antes de escalar a datos de
+                producción</li>
+              <li>Leo con cuidado la configuración existente del cliente antes de cambiar algo — la mayor parte de
+                mi trabajo ocurre dentro de sistemas de los que otras personas ya dependen</li>
+              <li>Documento el "por qué", no solo el "qué", porque las automatizaciones suelen durar más que la
+                persona que las explica</li>
+            </ul>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Disponible para</p>
+            <ul class="md-list">
+              <li>Automatización e integración de Zoho CRM / Flow / Projects / Books / WorkDrive</li>
+              <li>Integraciones de APIs externas conectadas a Zoho (ERPs, firma electrónica, generación de
+                documentos, mensajería)</li>
+              <li>Flujos de trabajo asistidos por IA construidos sobre Zoho</li>
             </ul>
           </div>
         </section>
@@ -232,7 +277,7 @@
 
         <!-- ---------- testimonials.md ---------- -->
         <section class="pane" id="pane-testimonials">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Testimonials</p>
             <p class="md-plain">Verified feedback from clients, via Upwork.</p>
             <p class="md-blank"></p>
@@ -257,11 +302,38 @@
             </blockquote>
             <p class="md-tag">— Joshua, Zoho One Expert engagement (5.0★, 1,815 hrs)</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Testimonios</p>
+            <p class="md-plain">Comentarios verificados de clientes, vía Upwork.</p>
+            <p class="md-comment">&lt;!-- las citas se mantienen en su idioma original --&gt;</p>
+            <p class="md-blank"></p>
+
+            <blockquote class="md-quote">
+              "I hired Facundo to develop Zoho applications and setup Zoho CRM automations. He's a great developer
+              and very responsible. Highly recommended!"
+            </blockquote>
+            <p class="md-tag">— Ariel C., Business Manager · Zoho Developer, jul. 2023</p>
+
+            <p class="md-blank"></p>
+            <blockquote class="md-quote">
+              "Facundo is a talented professional. He was critical in our systems implementation and we look
+              forward to working with him again soon on future projects."
+            </blockquote>
+            <p class="md-tag">— Steven C., CEO en WNY Exteriors · Developer &amp; CRM Admin, jul. 2023</p>
+
+            <p class="md-blank"></p>
+            <blockquote class="md-quote">
+              "Facundo is a driven and dedicated individual that will go to great lengths to implement a solution
+              they may never have worked on before. They do a great job..."
+            </blockquote>
+            <p class="md-tag">— Joshua, proyecto Zoho One Expert (5.0★, 1.815 hs)</p>
+          </div>
         </section>
 
         <!-- ---------- education.md ---------- -->
         <section class="pane" id="pane-education">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Education &amp; Certifications</p>
 
             <p class="md-h2"><span class="md-mark">##</span> Certifications</p>
@@ -278,11 +350,29 @@
                 Firebase</li>
             </ul>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Educación y Certificaciones</p>
+
+            <p class="md-h2"><span class="md-mark">##</span> Certificaciones</p>
+            <ul class="md-list">
+              <li>Zoho Creator Developer – Associate — Zoho, emitido en junio de 2025 (ID: ZCCA2612)</li>
+            </ul>
+
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Educación</p>
+            <ul class="md-list">
+              <li>Analista de Sistemas — Instituto Superior Santo Domingo, Córdoba, Argentina (2018–2023)</li>
+              <li>Desarrollador Web FullStack — Escuela DevRock (2021–2022)</li>
+              <li>SummerHack Bootcamp — DevRock School: intensivo de 4 meses en HTML, CSS, JavaScript, React y
+                Firebase</li>
+            </ul>
+          </div>
         </section>
 
         <!-- ---------- experience/change-order-automation.md ---------- -->
         <section class="pane" id="pane-exp-changeorder">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Change Order Approval → Project Automation</p>
             <p class="md-tag">client: technology consulting firm (TechnoMap)</p>
             <p class="md-blank"></p>
@@ -295,11 +385,27 @@
             <p class="md-h2"><span class="md-mark">##</span> Stack</p>
             <p class="md-plain"><span class="md-code">Deluge</span> · Zoho CRM Approval Process · Zoho Projects v3 API · Zoho Books custom fields</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Automatización de Aprobación de Cambios → Proyectos</p>
+            <p class="md-tag">cliente: consultora tecnológica (TechnoMap)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Construí un sistema que encadena el Proceso de Aprobación nativo de Zoho CRM con
+            la creación automática de proyectos en Zoho Projects: una vez que se aprueba una orden de cambio en
+            CRM, el flujo crea la estructura correspondiente de Fase, Lista de Tareas y Tareas en Projects vía la
+            API v3 — sin carga manual.</p>
+            <p class="md-plain">También construí y depuré una automatización complementaria que maneja la
+            manipulación del subformulario de facturas y mantiene sincronizados los campos de estado entre CRM,
+            Projects y Books.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain"><span class="md-code">Deluge</span> · Proceso de Aprobación de Zoho CRM · API v3 de Zoho Projects · Campos personalizados de Zoho Books</p>
+          </div>
         </section>
 
         <!-- ---------- experience/document-signature-flow.md ---------- -->
         <section class="pane" id="pane-exp-docsign">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Document Generation &amp; E-Signature Automation</p>
             <p class="md-tag">client: financial advisory firm (Newpoint Advisors)</p>
             <p class="md-blank"></p>
@@ -313,11 +419,28 @@
             <p class="md-h2"><span class="md-mark">##</span> Stack</p>
             <p class="md-plain"><span class="md-code">Deluge</span> · Zoho Writer API · Zoho Sign API · WorkDrive API · CRM iframe widgets</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Generación de Documentos y Firma Electrónica</p>
+            <p class="md-tag">cliente: firma de asesoría financiera (Newpoint Advisors)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Integré la API de combinación/firma de Zoho Writer con Zoho Sign para generar
+            documentos de clientes automáticamente y enviarlos a firma directamente desde los registros de CRM,
+            incluyendo lógica de transferencia de titularidad y plantillas de email personalizadas vía merge
+            tags.</p>
+            <p class="md-plain">Lo combiné con un sistema de automatización de carpetas en WorkDrive ligado a
+            Cuentas y Proyectos de Cliente en CRM — las carpetas se crean, se vinculan y se insertan de vuelta en
+            los layouts de CRM vía widgets de iframe, así todo el ciclo de vida del documento queda en una sola
+            pantalla para el equipo que atiende al cliente.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain"><span class="md-code">Deluge</span> · API de Zoho Writer · API de Zoho Sign · API de WorkDrive · Widgets iframe en CRM</p>
+          </div>
         </section>
 
         <!-- ---------- experience/retail-dataprep-pipeline.md ---------- -->
         <section class="pane" id="pane-exp-dataprep">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Retail Data Pipeline: Files → CRM Records</p>
             <p class="md-tag">client: multi-brand facilities services provider (Gaucher Associates Inc.)</p>
             <p class="md-blank"></p>
@@ -331,11 +454,28 @@
             <p class="md-h2"><span class="md-mark">##</span> Stack</p>
             <p class="md-plain">Zoho DataPrep · Zoho CRM bulk operations · Zoho Flow</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Pipeline de Datos Retail: Archivos → Registros de CRM</p>
+            <p class="md-tag">cliente: proveedor de servicios de mantenimiento multi-marca (Gaucher Associates Inc.)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Construí pipelines en Zoho DataPrep que procesan archivos semanales de ubicaciones
+            y calendarios de las principales marcas retail, y crean o actualizan automáticamente los registros de
+            Proyectos de Cliente en CRM — convirtiendo un proceso manual de carga de datos, marca por marca, en un
+            pipeline programado.</p>
+            <p class="md-plain">La dificultad real estaba en los datos, no en la plataforma: cada marca exporta
+            con un formato ligeramente distinto, con formatos de dirección y columnas inconsistentes que
+            necesitaban un manejo específico por marca antes de que los datos pudieran llegar a un esquema único y
+            consistente en CRM.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho DataPrep · Operaciones masivas de Zoho CRM · Zoho Flow</p>
+          </div>
         </section>
 
         <!-- ---------- experience/pdf-fax-generation.md ---------- -->
         <section class="pane" id="pane-exp-pdffax">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Positioned PDF Fax Generation</p>
             <p class="md-tag">client: healthcare DME provider (DiabetesDME)</p>
             <p class="md-blank"></p>
@@ -349,11 +489,27 @@
             <p class="md-h2"><span class="md-mark">##</span> Stack</p>
             <p class="md-plain">Zoho Flow · DocRaptor API · HTML/CSS document templating</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Generación de Faxes PDF Posicionados</p>
+            <p class="md-tag">cliente: proveedor de equipamiento médico (DiabetesDME)</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Construí flujos de generación de PDF con DocRaptor en Zoho Flow que producen
+            documentos listos para fax, posicionando contenido HTML de forma absoluta sobre imágenes de fondo —
+            replicando exactamente el layout de los formularios en papel existentes, de modo que la versión
+            automatizada es indistinguible de una completada a mano.</p>
+            <p class="md-plain">Después extendí el mismo flujo para soportar un nuevo documento adicional de dos
+            páginas, reutilizando la infraestructura existente mediante un único parámetro de rama
+            <span class="md-code">docType</span>, en vez de duplicar el pipeline.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho Flow · API de DocRaptor · Plantillas de documentos HTML/CSS</p>
+          </div>
         </section>
 
         <!-- ---------- experience/sap-integration-debug.md ---------- -->
         <section class="pane" id="pane-exp-sap">
-          <div class="code-block">
+          <div class="code-block i18n-block" data-lang="en">
             <p class="md-h1"><span class="md-mark">#</span> Zoho Flow ↔ SAP Business One Debugging</p>
             <p class="md-tag">client: manufacturing/distribution company running SAP B1</p>
             <p class="md-blank"></p>
@@ -367,11 +523,28 @@
             <p class="md-h2"><span class="md-mark">##</span> Stack</p>
             <p class="md-plain">Zoho Flow · SAP Business One · On-Prem Agent · Deluge</p>
           </div>
+
+          <div class="code-block i18n-block" data-lang="es" hidden>
+            <p class="md-h1"><span class="md-mark">#</span> Debugging de Zoho Flow ↔ SAP Business One</p>
+            <p class="md-tag">cliente: empresa de manufactura/distribución que usa SAP B1</p>
+            <p class="md-blank"></p>
+            <p class="md-plain">Diagnostiqué una integración fallida entre Zoho Flow y SAP Business One, corriendo
+            a través de un On-Prem Agent. Rastreé la falla hasta un bug de serialización a nivel de plataforma:
+            los valores <span class="md-code">null</span> de Deluge se enviaban a SAP como el string literal
+            <span class="md-code">"null"</span> en vez de un valor vacío, corrompiendo registros de forma
+            silenciosa.</p>
+            <p class="md-plain">Reporté el bug a Zoho y entregué una solución alternativa con lógica condicional
+            para que la integración del cliente siguiera funcionando mientras se resolvía a nivel de
+            plataforma.</p>
+            <p class="md-blank"></p>
+            <p class="md-h2"><span class="md-mark">##</span> Stack</p>
+            <p class="md-plain">Zoho Flow · SAP Business One · On-Prem Agent · Deluge</p>
+          </div>
         </section>
 
         <!-- ---------- currently-learning.txt ---------- -->
         <section class="pane" id="pane-learning">
-          <div class="code-block code-plain">
+          <div class="code-block code-plain i18n-block" data-lang="en">
             <p class="md-comment"># updated 2026</p>
             <p class="md-plain">→ Applying AI/LLMs to Zoho automation — document understanding, smarter data
             cleanup, natural-language triggers on top of existing Deluge workflows.</p>
@@ -381,11 +554,23 @@
             <p class="md-plain">→ Git &amp; GitHub — version control, deployment workflows, working the way most
             dev teams do outside Zoho.</p>
           </div>
+
+          <div class="code-block code-plain i18n-block" data-lang="es" hidden>
+            <p class="md-comment"># actualizado 2026</p>
+            <p class="md-plain">→ Aplicando IA/LLMs a la automatización en Zoho — comprensión de documentos,
+            limpieza de datos más inteligente, disparadores en lenguaje natural sobre flujos de Deluge
+            existentes.</p>
+            <p class="md-plain">→ Desarrollo de software en general, fuera del ecosistema Zoho: este sitio es un
+            ejemplo en vivo — primero HTML/CSS/JS puro, construido y publicado con Claude, con una versión en
+            React planeada como siguiente paso.</p>
+            <p class="md-plain">→ Git y GitHub — control de versiones, flujos de deploy, trabajando como lo hace
+            la mayoría de los equipos de desarrollo fuera de Zoho.</p>
+          </div>
         </section>
 
         <!-- ---------- contact.txt ---------- -->
         <section class="pane" id="pane-contact">
-          <div class="code-block code-plain">
+          <div class="code-block code-plain i18n-block" data-lang="en">
             <p class="md-plain">name:    Facundo Salguero</p>
             <p class="md-plain">role:    Zoho Developer &amp; AI Integration Specialist</p>
             <p class="md-plain">based:   Argentina</p>
@@ -395,6 +580,17 @@
             <p class="md-blank"></p>
             <a class="cta-button" href="mailto:ff.aq199@gmail.com">→ Send an email</a>
           </div>
+
+          <div class="code-block code-plain i18n-block" data-lang="es" hidden>
+            <p class="md-plain">nombre:  Facundo Salguero</p>
+            <p class="md-plain">rol:     Desarrollador Zoho y Especialista en Integración de IA</p>
+            <p class="md-plain">país:    Argentina</p>
+            <p class="md-plain">email:   <a href="mailto:ff.aq199@gmail.com">ff.aq199@gmail.com</a></p>
+            <p class="md-plain">upwork:  <a href="https://www.upwork.com/freelancers/~015ced49c9d0174e87" target="_blank" rel="noopener noreferrer">upwork.com/freelancers/~015ced49c9d0174e87</a></p>
+            <p class="md-plain">linkedin: <a href="https://www.linkedin.com/in/facundo-salguero-861a51214" target="_blank" rel="noopener noreferrer">linkedin.com/in/facundo-salguero-861a51214</a></p>
+            <p class="md-blank"></p>
+            <a class="cta-button" href="mailto:ff.aq199@gmail.com">→ Enviar un email</a>
+          </div>
         </section>
 
       </main>
@@ -402,7 +598,7 @@
       <!-- ============ TERMINAL PANEL ============ -->
       <div class="terminal-panel" id="terminal-panel">
         <div class="terminal-header">
-          <span>TERMINAL</span>
+          <span data-i18n="terminal">TERMINAL</span>
           <button id="terminal-toggle" aria-label="Toggle terminal" aria-expanded="true">▾</button>
         </div>
         <div class="terminal-body" id="terminal-body">
@@ -416,7 +612,7 @@
         <span id="status-file">about.md</span>
         <span class="statusbar-spacer"></span>
         <span>UTF-8</span>
-        <span>Built with Claude</span>
+        <span data-i18n="builtWith">Built with Claude</span>
       </footer>
     </div>
   </div>
