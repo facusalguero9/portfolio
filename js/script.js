@@ -33,7 +33,6 @@ const I18N = {
     ctaLinkedin: '↗ LinkedIn',
     badgeSuccess: '✓ 100% Job Success',
     badgeTopRated: '★ Top Rated',
-    badgeEarned: '$60K+ earned',
     badgeHours: '4,848+ hrs logged',
     badgeJobs: '11+ jobs completed',
     termCmds: [
@@ -57,7 +56,6 @@ const I18N = {
     ctaLinkedin: '↗ LinkedIn',
     badgeSuccess: '✓ 100% de éxito',
     badgeTopRated: '★ Mejor calificado',
-    badgeEarned: '$60K+ ganados',
     badgeHours: '4.848+ hs registradas',
     badgeJobs: '11+ trabajos completados',
     termCmds: [
