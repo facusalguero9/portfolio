@@ -4,7 +4,7 @@ Mi portfolio/CV personal, con estética de editor de código (estilo Claude Code
 Construido como proyecto de aprendizaje: HTML, CSS y JavaScript puros, sin
 frameworks ni build tools.
 
-**Sitio en vivo:** _(se agrega el link acá después del deploy)_
+**Sitio en vivo:** https://facusalguero9.github.io/portfolio/
 
 ## Estructura del proyecto
 
